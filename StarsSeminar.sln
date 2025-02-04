@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckEnvironment", "CheckEnvironment\CheckEnvironment.csproj", "{50AFAE40-B493-4037-81CF-7D0256A5951A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckEnvironment", "CheckEnvironment\CheckEnvironment.csproj", "{50AFAE40-B493-4037-81CF-7D0256A5951A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarsMonitor", "StarsMonitor\StarsMonitor.csproj", "{75FCA46F-61D2-4B1F-9F58-381E4AE4563A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarsMonitor", "StarsMonitor\StarsMonitor.csproj", "{75FCA46F-61D2-4B1F-9F58-381E4AE4563A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarsTerminal", "StarsTerminal\StarsTerminal.csproj", "{424A307D-A49F-438C-A0C6-E3E0CF7D8226}"
 EndProject
@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarsDmmEmu", "StarsDmmEmu\StarsDmmEmu.csproj", "{BCCC3B39-CD80-4B1D-9DEE-3F2B2829F24E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarsMotorEmu", "StarsMotorEmu\StarsMotorEmu.csproj", "{BB01B762-2A3C-4C86-B6EC-DE9B1A2DF30D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +36,14 @@ Global
 		{424A307D-A49F-438C-A0C6-E3E0CF7D8226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{424A307D-A49F-438C-A0C6-E3E0CF7D8226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{424A307D-A49F-438C-A0C6-E3E0CF7D8226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCC3B39-CD80-4B1D-9DEE-3F2B2829F24E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCC3B39-CD80-4B1D-9DEE-3F2B2829F24E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCC3B39-CD80-4B1D-9DEE-3F2B2829F24E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCC3B39-CD80-4B1D-9DEE-3F2B2829F24E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB01B762-2A3C-4C86-B6EC-DE9B1A2DF30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB01B762-2A3C-4C86-B6EC-DE9B1A2DF30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB01B762-2A3C-4C86-B6EC-DE9B1A2DF30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB01B762-2A3C-4C86-B6EC-DE9B1A2DF30D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -377,11 +377,11 @@ namespace StarsTerminal
             var num = ((ButtonPlus)sender).EntryNumber;
             if (textBox_para.Text.Replace(" ", string.Empty) == "")
             {
-                SendBridge($"{tbGroup[num].From.SelectedItem}>{tbGroup[num].To.SelectedItem} {tbGroup[num].Com.SelectedItem}");
+                SendBridge($"{tbGroup[num].From.Text}>{tbGroup[num].To.Text} {tbGroup[num].Com.Text}");
             }
             else
             {
-                SendBridge($"{tbGroup[num].From.SelectedItem}>{tbGroup[num].To.SelectedItem} {tbGroup[num].Com.SelectedItem} {tbGroup[num].Param.Text}");
+                SendBridge($"{tbGroup[num].From.Text}>{tbGroup[num].To.Text} {tbGroup[num].Com.Text} {tbGroup[num].Param.Text}");
             }
         }
 
