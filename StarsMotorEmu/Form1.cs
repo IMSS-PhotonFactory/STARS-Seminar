@@ -105,6 +105,12 @@ namespace StarsMotorEmu
                         break;
 
                     case "SetValue":
+                        if(isMoving)
+                        {
+                            stars.SendMessage($"{e.from} @{e.command} Er: Busy");
+                            break;
+                        }
+                        
                         if(decimal.TryParse(e.parameters, out decimal value))
                         {
                             stars.SendMessage($"{e.from} @SetValue {e.parameters}"); 
@@ -116,6 +122,11 @@ namespace StarsMotorEmu
                         }
                         
                         break;
+
+                    case "IsBusy":
+                        stars.SendMessage($"{e.from} @IsBusy {Convert.ToInt32(isMoving)}");
+                        break;
+
 
                     default:
                         stars.SendMessage($"{e.from} @{e.command} Er: Command is not found or parameter is not enough.");
@@ -202,6 +213,8 @@ namespace StarsMotorEmu
             isMoving = true;
 
             stars.SendMessage($"System _ChangedIsBusy 1");
+            Invoke(new Action(() => textBox_stat.Text = "Moving"));
+
             timer.Start();
 
             await Task.Run(() =>
@@ -210,6 +223,7 @@ namespace StarsMotorEmu
             });
 
             stars.SendMessage($"System _ChangedIsBusy 0");
+            Invoke(new Action(() => textBox_stat.Text = "Stopped"));
         }
     }
 }
