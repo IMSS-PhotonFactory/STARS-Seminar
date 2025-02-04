@@ -52,20 +52,22 @@
             button2 = new Button();
             button3 = new Button();
             groupBox_send = new GroupBox();
+            comboBox_para3 = new ComboBox();
+            comboBox_para2 = new ComboBox();
+            comboBox_para = new ComboBox();
+            comboBox_free3 = new ComboBox();
+            comboBox_free2 = new ComboBox();
+            comboBox_free = new ComboBox();
             comboBox_from3 = new ComboBox();
             button13 = new ButtonPlus();
-            textBox_para3 = new TextBox();
             comboBox_com3 = new ComboBox();
             comboBox_to3 = new ComboBox();
             comboBox_from2 = new ComboBox();
             button12 = new ButtonPlus();
-            textBox_para2 = new TextBox();
             comboBox_com2 = new ComboBox();
             comboBox_to2 = new ComboBox();
             button11 = new ButtonPlus();
             button10 = new ButtonPlus();
-            textBox_free3 = new TextBox();
-            textBox_free2 = new TextBox();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
@@ -73,12 +75,11 @@
             comboBox_from = new ComboBox();
             label7 = new Label();
             button8 = new ButtonPlus();
-            textBox_para = new TextBox();
             comboBox_com = new ComboBox();
             comboBox_to = new ComboBox();
             button7 = new ButtonPlus();
-            textBox_free = new TextBox();
             button9 = new Button();
+            buttonPlus1 = new ButtonPlus();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_port).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_limit).BeginInit();
@@ -281,10 +282,10 @@
             listBox_log.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
             listBox_log.FormattingEnabled = true;
             listBox_log.ItemHeight = 21;
-            listBox_log.Location = new Point(12, 508);
+            listBox_log.Location = new Point(12, 550);
             listBox_log.Name = "listBox_log";
             listBox_log.ScrollAlwaysVisible = true;
-            listBox_log.Size = new Size(781, 256);
+            listBox_log.Size = new Size(781, 298);
             listBox_log.TabIndex = 12;
             // 
             // label5
@@ -292,7 +293,7 @@
             label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
             label5.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            label5.Location = new Point(12, 778);
+            label5.Location = new Point(12, 860);
             label5.Name = "label5";
             label5.Size = new Size(116, 21);
             label5.TabIndex = 13;
@@ -302,7 +303,7 @@
             // 
             numericUpDown_limit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDown_limit.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            numericUpDown_limit.Location = new Point(134, 776);
+            numericUpDown_limit.Location = new Point(134, 858);
             numericUpDown_limit.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown_limit.Name = "numericUpDown_limit";
             numericUpDown_limit.Size = new Size(96, 29);
@@ -314,7 +315,7 @@
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button2.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            button2.Location = new Point(236, 772);
+            button2.Location = new Point(236, 854);
             button2.Name = "button2";
             button2.Size = new Size(101, 33);
             button2.TabIndex = 15;
@@ -326,7 +327,7 @@
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            button3.Location = new Point(692, 772);
+            button3.Location = new Point(692, 854);
             button3.Name = "button3";
             button3.Size = new Size(101, 33);
             button3.TabIndex = 16;
@@ -336,20 +337,23 @@
             // 
             // groupBox_send
             // 
+            groupBox_send.Controls.Add(buttonPlus1);
+            groupBox_send.Controls.Add(comboBox_para3);
+            groupBox_send.Controls.Add(comboBox_para2);
+            groupBox_send.Controls.Add(comboBox_para);
+            groupBox_send.Controls.Add(comboBox_free3);
+            groupBox_send.Controls.Add(comboBox_free2);
+            groupBox_send.Controls.Add(comboBox_free);
             groupBox_send.Controls.Add(comboBox_from3);
             groupBox_send.Controls.Add(button13);
-            groupBox_send.Controls.Add(textBox_para3);
             groupBox_send.Controls.Add(comboBox_com3);
             groupBox_send.Controls.Add(comboBox_to3);
             groupBox_send.Controls.Add(comboBox_from2);
             groupBox_send.Controls.Add(button12);
-            groupBox_send.Controls.Add(textBox_para2);
             groupBox_send.Controls.Add(comboBox_com2);
             groupBox_send.Controls.Add(comboBox_to2);
             groupBox_send.Controls.Add(button11);
             groupBox_send.Controls.Add(button10);
-            groupBox_send.Controls.Add(textBox_free3);
-            groupBox_send.Controls.Add(textBox_free2);
             groupBox_send.Controls.Add(label11);
             groupBox_send.Controls.Add(label10);
             groupBox_send.Controls.Add(label9);
@@ -357,18 +361,64 @@
             groupBox_send.Controls.Add(comboBox_from);
             groupBox_send.Controls.Add(label7);
             groupBox_send.Controls.Add(button8);
-            groupBox_send.Controls.Add(textBox_para);
             groupBox_send.Controls.Add(comboBox_com);
             groupBox_send.Controls.Add(comboBox_to);
             groupBox_send.Controls.Add(button7);
-            groupBox_send.Controls.Add(textBox_free);
             groupBox_send.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
             groupBox_send.Location = new Point(12, 214);
             groupBox_send.Name = "groupBox_send";
-            groupBox_send.Size = new Size(781, 288);
+            groupBox_send.Size = new Size(781, 330);
             groupBox_send.TabIndex = 17;
             groupBox_send.TabStop = false;
             groupBox_send.Text = "Send Message";
+            // 
+            // comboBox_para3
+            // 
+            comboBox_para3.FormattingEnabled = true;
+            comboBox_para3.Location = new Point(399, 245);
+            comboBox_para3.Name = "comboBox_para3";
+            comboBox_para3.Size = new Size(295, 29);
+            comboBox_para3.TabIndex = 42;
+            // 
+            // comboBox_para2
+            // 
+            comboBox_para2.FormattingEnabled = true;
+            comboBox_para2.Location = new Point(399, 211);
+            comboBox_para2.Name = "comboBox_para2";
+            comboBox_para2.Size = new Size(295, 29);
+            comboBox_para2.TabIndex = 41;
+            // 
+            // comboBox_para
+            // 
+            comboBox_para.FormattingEnabled = true;
+            comboBox_para.Location = new Point(399, 176);
+            comboBox_para.Name = "comboBox_para";
+            comboBox_para.Size = new Size(295, 29);
+            comboBox_para.TabIndex = 40;
+            // 
+            // comboBox_free3
+            // 
+            comboBox_free3.FormattingEnabled = true;
+            comboBox_free3.Location = new Point(18, 118);
+            comboBox_free3.Name = "comboBox_free3";
+            comboBox_free3.Size = new Size(676, 29);
+            comboBox_free3.TabIndex = 39;
+            // 
+            // comboBox_free2
+            // 
+            comboBox_free2.FormattingEnabled = true;
+            comboBox_free2.Location = new Point(18, 85);
+            comboBox_free2.Name = "comboBox_free2";
+            comboBox_free2.Size = new Size(676, 29);
+            comboBox_free2.TabIndex = 38;
+            // 
+            // comboBox_free
+            // 
+            comboBox_free.FormattingEnabled = true;
+            comboBox_free.Location = new Point(18, 50);
+            comboBox_free.Name = "comboBox_free";
+            comboBox_free.Size = new Size(676, 29);
+            comboBox_free.TabIndex = 37;
             // 
             // comboBox_from3
             // 
@@ -389,14 +439,6 @@
             button13.Text = "Send";
             button13.UseVisualStyleBackColor = true;
             button13.Click += Command_Click;
-            // 
-            // textBox_para3
-            // 
-            textBox_para3.Location = new Point(399, 245);
-            textBox_para3.Name = "textBox_para3";
-            textBox_para3.Size = new Size(295, 29);
-            textBox_para3.TabIndex = 34;
-            textBox_para3.KeyUp += textBox_para3_KeyUp;
             // 
             // comboBox_com3
             // 
@@ -435,14 +477,6 @@
             button12.Text = "Send";
             button12.UseVisualStyleBackColor = true;
             button12.Click += Command_Click;
-            // 
-            // textBox_para2
-            // 
-            textBox_para2.Location = new Point(399, 210);
-            textBox_para2.Name = "textBox_para2";
-            textBox_para2.Size = new Size(295, 29);
-            textBox_para2.TabIndex = 29;
-            textBox_para2.KeyUp += textBox_para2_KeyUp;
             // 
             // comboBox_com2
             // 
@@ -483,22 +517,6 @@
             button10.Text = "Send";
             button10.UseVisualStyleBackColor = true;
             button10.Click += Free_Click;
-            // 
-            // textBox_free3
-            // 
-            textBox_free3.Location = new Point(18, 119);
-            textBox_free3.Name = "textBox_free3";
-            textBox_free3.Size = new Size(676, 29);
-            textBox_free3.TabIndex = 24;
-            textBox_free3.KeyUp += textBox_free3_KeyUp;
-            // 
-            // textBox_free2
-            // 
-            textBox_free2.Location = new Point(18, 84);
-            textBox_free2.Name = "textBox_free2";
-            textBox_free2.Size = new Size(676, 29);
-            textBox_free2.TabIndex = 23;
-            textBox_free2.KeyUp += textBox_free2_KeyUp;
             // 
             // label11
             // 
@@ -565,14 +583,6 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += Command_Click;
             // 
-            // textBox_para
-            // 
-            textBox_para.Location = new Point(399, 175);
-            textBox_para.Name = "textBox_para";
-            textBox_para.Size = new Size(295, 29);
-            textBox_para.TabIndex = 15;
-            textBox_para.KeyUp += textBox_para_KeyUp;
-            // 
             // comboBox_com
             // 
             comboBox_com.FormattingEnabled = true;
@@ -602,19 +612,11 @@
             button7.UseVisualStyleBackColor = true;
             button7.Click += Free_Click;
             // 
-            // textBox_free
-            // 
-            textBox_free.Location = new Point(18, 49);
-            textBox_free.Name = "textBox_free";
-            textBox_free.Size = new Size(676, 29);
-            textBox_free.TabIndex = 6;
-            textBox_free.KeyUp += textBox_free_KeyUp;
-            // 
             // button9
             // 
             button9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button9.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            button9.Location = new Point(343, 772);
+            button9.Location = new Point(343, 854);
             button9.Name = "button9";
             button9.Size = new Size(101, 33);
             button9.TabIndex = 18;
@@ -622,11 +624,22 @@
             button9.UseVisualStyleBackColor = true;
             button9.Click += LogClr_Click;
             // 
+            // buttonPlus1
+            // 
+            buttonPlus1.EntryNumber = 0;
+            buttonPlus1.Location = new Point(18, 287);
+            buttonPlus1.Name = "buttonPlus1";
+            buttonPlus1.Size = new Size(180, 29);
+            buttonPlus1.TabIndex = 43;
+            buttonPlus1.Text = "Clear input history";
+            buttonPlus1.UseVisualStyleBackColor = true;
+            buttonPlus1.Click += buttonPlus1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(810, 811);
+            ClientSize = new Size(810, 893);
             Controls.Add(button9);
             Controls.Add(groupBox_send);
             Controls.Add(button3);
@@ -678,9 +691,7 @@
         private Label label6;
         private GroupBox groupBox_send;
         private ButtonPlus button7;
-        private TextBox textBox_free;
         private ButtonPlus button8;
-        private TextBox textBox_para;
         private ComboBox comboBox_com;
         private ComboBox comboBox_to;
         private Button button9;
@@ -692,17 +703,20 @@
         private Label label7;
         private ButtonPlus button11;
         private ButtonPlus button10;
-        private TextBox textBox_free3;
-        private TextBox textBox_free2;
         private ComboBox comboBox_from3;
         private ButtonPlus button13;
-        private TextBox textBox_para3;
         private ComboBox comboBox_com3;
         private ComboBox comboBox_to3;
         private ComboBox comboBox_from2;
         private ButtonPlus button12;
-        private TextBox textBox_para2;
         private ComboBox comboBox_com2;
         private ComboBox comboBox_to2;
+        private ComboBox comboBox_free3;
+        private ComboBox comboBox_free2;
+        private ComboBox comboBox_free;
+        private ComboBox comboBox_para3;
+        private ComboBox comboBox_para2;
+        private ComboBox comboBox_para;
+        private ButtonPlus buttonPlus1;
     }
 }

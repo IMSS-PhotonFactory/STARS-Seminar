@@ -27,12 +27,12 @@ namespace StarsTerminal
 
             groupBox_send.Enabled = false;
 
-            tbGroup.Add(new TextBoxGroup() { Free = textBox_free, From = comboBox_from, To = comboBox_to, Com = comboBox_com, Param = textBox_para });
-            tbGroup.Add(new TextBoxGroup() { Free = textBox_free2, From = comboBox_from2, To = comboBox_to2, Com = comboBox_com2, Param = textBox_para2 });
-            tbGroup.Add(new TextBoxGroup() { Free = textBox_free3, From = comboBox_from3, To = comboBox_to3, Com = comboBox_com3, Param = textBox_para3 });
+            tbGroup.Add(new TextBoxGroup() { Free = comboBox_free, From = comboBox_from, To = comboBox_to, Com = comboBox_com, Param = comboBox_para });
+            tbGroup.Add(new TextBoxGroup() { Free = comboBox_free2, From = comboBox_from2, To = comboBox_to2, Com = comboBox_com2, Param = comboBox_para2 });
+            tbGroup.Add(new TextBoxGroup() { Free = comboBox_free3, From = comboBox_from3, To = comboBox_to3, Com = comboBox_com3, Param = comboBox_para3 });
 
             var currentPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            if(currentPath == null)
+            if (currentPath == null)
             {
                 currentPath = @".\";
             }
@@ -67,7 +67,7 @@ namespace StarsTerminal
                 }
             }
 
-            if(res == null)
+            if (res == null)
             {
                 res = new List<ConnectionPreset>();
             }
@@ -296,7 +296,7 @@ namespace StarsTerminal
         {
             var target = comboBox1.SelectedIndex;
             string name = comboBox1.Text;
-            
+
             var f = new InputPresetName(name);
             if (f.ShowDialog() == DialogResult.OK)
             {
@@ -345,7 +345,13 @@ namespace StarsTerminal
         private void Free_Click(object sender, EventArgs e)
         {
             var num = ((ButtonPlus)sender).EntryNumber;
-            SendBridge($"{tbGroup[num].From.SelectedItem}>{tbGroup[num].Free.Text}");
+
+            if (tbGroup[num].Free.Items.IndexOf(tbGroup[num].Free.Text) == -1)
+            {
+                tbGroup[num].Free.Items.Add(tbGroup[num].Free.Text);
+            }
+
+            SendBridge($"{tbGroup[num].Free.Text}");
         }
 
         private void textBox_free_KeyUp(object sender, KeyEventArgs e)
@@ -375,7 +381,28 @@ namespace StarsTerminal
         private void Command_Click(object sender, EventArgs e)
         {
             var num = ((ButtonPlus)sender).EntryNumber;
-            if (textBox_para.Text.Replace(" ", string.Empty) == "")
+
+            if (tbGroup[num].From.Items.IndexOf(tbGroup[num].From.Text) == -1)
+            {
+                tbGroup[num].From.Items.Add(tbGroup[num].From.Text);
+            }
+
+            if (tbGroup[num].To.Items.IndexOf(tbGroup[num].To.Text) == -1)
+            {
+                tbGroup[num].To.Items.Add(tbGroup[num].To.Text);
+            }
+
+            if (tbGroup[num].Com.Items.IndexOf(tbGroup[num].Com.Text) == -1)
+            {
+                tbGroup[num].Com.Items.Add(tbGroup[num].Com.Text);
+            }
+
+            if (tbGroup[num].Param.Items.IndexOf(tbGroup[num].Param.Text) == -1)
+            {
+                tbGroup[num].Param.Items.Add(tbGroup[num].Param.Text);
+            }
+
+            if (tbGroup[num].Param.Text.Replace(" ", string.Empty) == "")
             {
                 SendBridge($"{tbGroup[num].From.Text}>{tbGroup[num].To.Text} {tbGroup[num].Com.Text}");
             }
@@ -411,9 +438,21 @@ namespace StarsTerminal
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.Items.Count > 0)
+            if (comboBox1.Items.Count > 0)
             {
                 SetPreset();
+            }
+        }
+
+        private void buttonPlus1_Click(object sender, EventArgs e)
+        {
+            foreach (var item in tbGroup) 
+            {
+                item.Free.Items.Clear();
+                item.From.Items.Clear();
+                item.To.Items.Clear();
+                item.Com.Items.Clear();
+                item.Param.Items.Clear();
             }
         }
     }
@@ -433,11 +472,11 @@ namespace StarsTerminal
 
     public class TextBoxGroup
     {
-        public TextBox? Free { set; get; } = null;
+        public ComboBox? Free { set; get; } = null;
         public ComboBox? From { set; get; } = null;
         public ComboBox? To { set; get; } = null;
         public ComboBox? Com { set; get; } = null;
-        public TextBox? Param { set; get; } = null;
+        public ComboBox? Param { set; get; } = null;
 
         public TextBoxGroup() { }
     }
