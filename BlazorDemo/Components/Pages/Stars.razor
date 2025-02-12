@@ -1,0 +1,57 @@
+﻿@using STARS;
+@page "/stars"
+@rendermode InteractiveServer
+
+<PageTitle>STARS Demo</PageTitle>
+<h3>STARS demo page</h3>
+
+<div>
+    Value = @val
+    <button @onclick="onClick">Plus 10</button>
+</div>
+
+<div>
+    <input type="text" @bind=str @bind:event="oninput"/>
+    <br />
+    Input string = @str
+</div>
+<div>
+    STARS Message = @starsmessage
+    <br />
+    <button @onclick="onClickStarsSend">STARS Send</button>
+</div>
+
+@code {
+    STARS.StarsInterface? stars;
+
+    decimal val = 123.56m;
+    string str = "";
+    string starsmessage = "";
+
+    void onClick()
+    {
+        val = val + 10;
+    }
+
+    protected override void OnInitialized()
+    {
+        stars = new StarsInterface("myapp", "127.0.0.1", @"myapp.key", 6057);
+        stars.Connect();
+        stars.DataReceived += Stars_DataReceived;
+        stars.CallbackOn();
+    }
+
+    private async void Stars_DataReceived(object? sender, StarsCbArgs e)
+    {
+        starsmessage = e.allMessage;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    void onClickStarsSend()
+    {
+        if(stars != null && stars.IsConnected == true)
+        {
+            stars.Send("System gettime");
+        }
+    }
+}

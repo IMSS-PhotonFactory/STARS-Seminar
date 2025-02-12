@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "T1",
+    "IPaddr": "127.0.0.1",
+    "Port": 6057,
+    "NodeName": "term1",
+    "KeyWord": "stars",
+    "KeyPath": "",
+    "UseKeyWord": false
+  }
+]
