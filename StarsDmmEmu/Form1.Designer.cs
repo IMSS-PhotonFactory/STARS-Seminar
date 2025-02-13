@@ -312,7 +312,7 @@
             Controls.Add(button_con);
             Controls.Add(groupBox1);
             Name = "Form1";
-            Text = "Stars Monitor";
+            Text = "Stars DMM Emu";
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);
