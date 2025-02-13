@@ -1,4 +1,5 @@
 ﻿@using STARS;
+@implements IDisposable;
 @page "/stars"
 @rendermode InteractiveServer
 
@@ -20,6 +21,13 @@
     <br />
     <button @onclick="onClickStarsSend">STARS Send</button>
 </div>
+<div>
+    <input type="text" @bind=sendmessage />
+    <br />
+    <button @onclick="onClickSend">STARS Send</button>
+</div>
+
+
 
 @code {
     STARS.StarsInterface? stars;
@@ -27,6 +35,7 @@
     decimal val = 123.56m;
     string str = "";
     string starsmessage = "";
+    string sendmessage = "";
 
     void onClick()
     {
@@ -54,4 +63,22 @@
             stars.Send("System gettime");
         }
     }
+
+    public void Dispose()
+    {
+        if (stars != null && stars.IsConnected == true)
+        {
+            stars.DataReceived -= Stars_DataReceived;
+            stars.Disconnect();
+        }
+    }
+
+    void onClickSend()
+    {
+        if (stars != null && stars.IsConnected == true)
+        {
+            stars.Send(sendmessage);
+        }
+    }
+
 }
